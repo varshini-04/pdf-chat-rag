@@ -1,22 +1,10 @@
-<img width="1440" height="857" alt="Screenshot 2026-07-12 at 10 23 14 PM" src="https://github.com/user-attachments/assets/39c50ab8-5d19-4cec-a7ab-dd948f29f9f9" />
----
-title: Chat With Your PDF
-emoji: 📄
-colorFrom: indigo
-colorTo: blue
-sdk: streamlit
-sdk_version: "1.36.0"
-app_file: app.py
-pinned: false
----
-
 # 📄 Chat with your PDF — RAG Demo
 
 **Upload any document and ask questions about it.** Answers are grounded in your file using Retrieval-Augmented Generation (RAG) — the same technique businesses use to build AI assistants over their internal docs, help centers, and product catalogs.
 
-👉 **Live demo:** _add your Hugging Face Space link here_
+👉 **Live demo:** [_paste your Streamlit app link here](https://pdf-chat-rag-u8v3zzxshckjulnsegvztb.streamlit.app/)
 
-![screenshot](screenshot.png) <!-- add a screenshot after deploying -->
+![screenshot](<img width="1440" height="857" alt="Screenshot 2026-07-12 at 10 23 14 PM" src="https://github.com/user-attachments/assets/42c48dc0-1d93-4588-ac8d-721325af959c" />) <!-- add a screenshot after deploying -->
 
 ## What it demonstrates (for clients)
 
@@ -48,13 +36,18 @@ export GROQ_API_KEY=your_key_here   # get a free key at console.groq.com
 streamlit run app.py
 ```
 
-## Deploy free on Hugging Face Spaces (10 minutes)
+## Deploy free on Streamlit Community Cloud (10 minutes)
 
-1. Create a free account at huggingface.co
-2. Click **New Space** → name it (e.g. `chat-with-your-pdf`) → SDK: **Streamlit** → hardware: **CPU basic (free)**
-3. Upload these files to the Space: `app.py`, `rag.py`, `sample_document.md`, `requirements.txt`, and this `README.md`
-4. Go to **Settings → Variables and secrets** → add a secret named `GROQ_API_KEY` with your Groq API key (free at console.groq.com)
-5. The Space builds automatically (first build takes a few minutes while the embedding model downloads). Done — you have a public URL to share.
+1. Push this project to a **public GitHub repo** (`app.py`, `rag.py`, `sample_document.md`, `requirements.txt`, `README.md`).
+2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
+3. Click **Create app** → select your repo, branch (`main`), and main file (`app.py`).
+4. Open **Advanced settings → Secrets** and add your Groq API key (free at console.groq.com):
+   ```toml
+   GROQ_API_KEY = "your_key_here"
+   ```
+5. Click **Deploy**. The first build takes a few minutes while the embedding model downloads. Done — you get a public `https://your-app.streamlit.app` URL to share.
+
+> Note: the app reads the key with `os.environ.get("GROQ_API_KEY")`, which works on Streamlit Cloud. If it isn't picked up, change that line in `app.py` to `st.secrets["GROQ_API_KEY"]`.
 
 > Tip: if the Groq model name is ever deprecated, change `GROQ_MODEL` at the top of `app.py` to any current model listed at console.groq.com/docs/models.
 

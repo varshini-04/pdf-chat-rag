@@ -1,7 +1,7 @@
 <img width="1440" height="857" alt="Screenshot 2026-07-12 at 10 23 14 PM" src="https://github.com/user-attachments/assets/39c50ab8-5d19-4cec-a7ab-dd948f29f9f9" />
 ---
 title: Chat With Your PDF
-emoji: 💬
+emoji: 📄
 colorFrom: indigo
 colorTo: blue
 sdk: streamlit
